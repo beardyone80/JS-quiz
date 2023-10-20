@@ -1,9 +1,11 @@
 // DOM Elements
 const quizContainer = document.getElementById('quiz-container');
 const nextButton = document.getElementById('next-button');
+const scoreDisplay = document.getElementById('score-display'); // Add a DOM element to display the score
 
 // State variable
 let currentQuestionIndex = 0;
+let score = 0; // Initialize the score
 
 let questions = [
     {
@@ -62,7 +64,7 @@ function createOptionButton(option) {
     // set the text of the button to be 'option'
     button.innerText = option;
     // style the button
-    button.classList.add('btn', 'btn-outline-primary', 'mt-2');
+    button.classList.add('btn', 'btn-outline-warning', 'mt-2');
     // add event listener
     button.addEventListener('click', () => handleOptionClick(option));
     // return the created button as a result of the function. Print to the screen.
@@ -72,13 +74,20 @@ function createOptionButton(option) {
 function handleOptionClick(optionSelected) {
     const correctAnswer = questions[currentQuestionIndex].correctAnswer;
     if (optionSelected === correctAnswer) {
-        // could increase score etc
-        alert('Hoooray You Are Right!!');
+        // Increase the score if the answer is correct
+        score++;
+        alert('Hooray! You are right!!');
     } else {
-        alert('Ooooopsy-daisy you got it wrong');
+        alert('Oopsie-daisy, you got it wrong');
     }
     loadNextQuestion();
+    updateScoreDisplay(); // Call a function to update the score display
 }
+
+function updateScoreDisplay() {
+    scoreDisplay.innerText = `Total Score: ${score}`; // Display the updated score
+}
+
 
 function loadNextQuestion() {
     // advance to the next question which is in currentQuestionIndex array
@@ -90,7 +99,9 @@ function loadNextQuestion() {
     }
 }
 
+
+
 function endQuiz() {
-    quizContainer.innerHTML = '<h2>Game Over!!!</h2>';
+    quizContainer.innerHTML = '<h2>I love you forever!</h2>';
     nextButton.classList.add('d-none');
 }

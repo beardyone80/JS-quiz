@@ -1,13 +1,33 @@
 .container {
+    height: 100vh;
     text-align: center;
     margin-top: 2em;
-    background-image: url("../images/bg-img.jpg");
+    padding: 5px;
+    /* background-repeat: no-repeat; */
 }
 
 button {
     margin: 0.5em;
+    text-decoration: bold;
+    text-shadow: 2px 2px 4px #000000;
+    font-weight: 400;
+  
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("../images/bg-img.jpg");
+    background-size: cover;
 }
 
-body {
-   
+#score-display {
+    margin: 0.5em;
+    text-decoration: bold;
+    /* text-shadow: 2px 2px 4px #000000; */
+    font-weight: 400;
+}
+
+.carys-paul-heading {
+    color: blueviolet;
+    border-radius: 4px;
+    font-weight: 600;
 }
